@@ -16,7 +16,7 @@ const EditBook = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`https://mern-backend-x77a.onrender.com/books/${id}`)
+    axios.get(`https://mern-backend-x77a.onrender.com/books/${id}`  || `http://localhost:5555/books/${id}`)
     .then((response) => {
         setAuthor(response.data.data.author);
         setPublishYear(response.data.data.publishYear)
@@ -37,7 +37,7 @@ const EditBook = () => {
     };
     setLoading(true);
     axios
-      .put(`https://mern-backend-x77a.onrender.com/books/${id}`, data)
+      .put(`https://mern-backend-x77a.onrender.com/books/${id}`  || `http://localhost:5555/books/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book Edited successfully', { variant: 'success' });
